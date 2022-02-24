@@ -1,8 +1,33 @@
+const resetGame = () => {
+  activePlayer = 0;
+  currentRound = 1;
+  isGameOver = false;
+  gameOverEl.firstElementChild.innerHTML = `
+    You won, <span id="winner-name">PLAYER NAME</span>!
+  `;
+  gameOverEl.style.display = 'none';
+
+  let gameBoardIndex = 0;
+  for (let i = 0; i < 3; i++) {
+    for (let j = 0; j < 3; j++) {
+      gameData[i][j] = 0;
+
+      const gameBoardItem = gameBoard.lastElementChild.children[gameBoardIndex];
+      gameBoardItem.textContent = '';
+      gameBoardItem.classList.remove('disabled');
+      gameBoardIndex++;
+    }
+  }
+};
+
 const startGame = () => {
   if (!players[0].name || !players[1].name) {
     alert('Please set custom player names for both players!');
     return;
   }
+
+  resetGame();
+
   activePlayerName.textContent = players[activePlayer].name;
   gameBoard.style.display = 'block';
 };
@@ -59,7 +84,23 @@ const checkGameOver = () => {
   return 0;
 };
 
+const endGame = (winnerID) => {
+  isGameOver = true;
+  gameOverEl.style.display = 'block';
+
+  if (winnerID > 0) {
+    gameOverEl.firstElementChild.firstElementChild.textContent =
+      players[winnerID - 1].name;
+  } else {
+    gameOverEl.firstElementChild.textContent = "It's a draw!";
+  }
+};
+
 const selectField = (e) => {
+  if (isGameOver) {
+    return;
+  }
+
   const selectedField = e.target;
   const col = selectedField.dataset.col - 1;
   const row = selectedField.dataset.row - 1;
@@ -75,7 +116,12 @@ const selectField = (e) => {
   gameData[row][col] = activePlayer + 1;
 
   const winnerID = checkGameOver();
-  console.log(winnerID);
+  console.log({ winnerID, currentRound });
+
+  if (winnerID !== 0) {
+    endGame(winnerID);
+  }
+
   currentRound++;
   switchPlayer();
 };
