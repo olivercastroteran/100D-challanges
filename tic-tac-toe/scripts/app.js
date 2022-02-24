@@ -31,6 +31,8 @@ const gameData = [
   [0, 0, 0],
 ];
 
+let currentRound = 1;
+
 //////////////////// EVENT LISTENERS ////////////////////
 editPlayer1Btn.addEventListener('click', openPlayerConfig);
 editPlayer2Btn.addEventListener('click', openPlayerConfig);
