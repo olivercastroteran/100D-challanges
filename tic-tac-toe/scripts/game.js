@@ -13,7 +13,20 @@ const switchPlayer = () => {
 };
 
 const selectField = (e) => {
-  e.target.textContent = players[activePlayer].symbol;
-  e.target.classList.add('disabled');
+  const selectedField = e.target;
+  const col = selectedField.dataset.col - 1;
+  const row = selectedField.dataset.row - 1;
+
+  if (gameData[row][col] > 0) {
+    alert('Select an empty field you Rat!');
+    return;
+  }
+
+  selectedField.textContent = players[activePlayer].symbol;
+  selectedField.classList.add('disabled');
+
+  gameData[row][col] = activePlayer + 1;
+  console.log(gameData);
+
   switchPlayer();
 };
