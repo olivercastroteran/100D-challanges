@@ -2,15 +2,9 @@
   {
     "name": "Overtime",
     "address": "Test Av",
-    "cuisine": "Pizzas",
+    "cuisine": "Italian",
     "website": "https://overtime.com",
-    "description": "blabla balb alb alb bal bla bla bal bal bla"
-  },
-  {
-    "name": "Test R",
-    "address": "test str",
-    "cuisine": "mexican",
-    "website": "https://test.com",
-    "description": "blab lab alb bal blab bal"
+    "description": "ba lb alb alb alb balb lba ba",
+    "id": "3b9236a2-ec1c-4677-a532-fad23a4b6142"
   }
 ]
