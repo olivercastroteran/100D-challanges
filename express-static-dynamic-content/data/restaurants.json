@@ -1,0 +1,18 @@
+[
+  {
+    "name": "Overtime",
+    "address": "Test Av",
+    "cuisine": "Italian",
+    "website": "https://overtime.com",
+    "description": "ba lb alb alb alb balb lba ba",
+    "id": "3b9236a2-ec1c-4677-a532-fad23a4b6142"
+  },
+  {
+    "name": "Tunari",
+    "address": "test av, cbba",
+    "cuisine": "Argentina",
+    "website": "https://tunari.com",
+    "description": "bla bla bal bla blab al ba",
+    "id": "2c28d868-b3b2-4d43-927e-00b8dd2a1e11"
+  }
+]
