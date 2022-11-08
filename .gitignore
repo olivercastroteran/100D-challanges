@@ -1,4 +1,5 @@
 /express-intro/node_modules
 /express-static-dynamic-content/node_modules
+/mongodb-nodejs/node_modules
 /mysql-nodejs/node_modules
 /mysql-nodejs/data/data.js
